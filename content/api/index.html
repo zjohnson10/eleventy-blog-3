@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <base href="/eleventy-blog-3/" />
+  <link rel="preconnect" crossorigin href="https://cdn.webcomponents.psu.edu" />
+  <link rel="preconnect" crossorigin href="https://fonts.googleapis.com" />
+  <link rel="preconnect" crossorigin href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" crossorigin href="https://i.creativecommons.org" />
+  <link rel="preconnect" crossorigin href="https://licensebuttons.net" />
+  <link rel="preload" href="/eleventy-blog-3/build.js" as="script" />
+  <link rel="preload" href="/eleventy-blog-3/build-haxcms.js" as="script" />
+  <link rel="preload" href="https://cdn.webcomponents.psu.edu/cdn/wc-registry.json" as="fetch" crossorigin="anonymous" />
+  <link rel="preload" href="https://cdn.webcomponents.psu.edu/cdn/build/es6/node_modules/@lrnwebcomponents/dynamic-import-registry/dynamic-import-registry.js" as="script" crossorigin="anonymous" />
+  <link rel="modulepreload" href="https://cdn.webcomponents.psu.edu/cdn/build/es6/node_modules/@lrnwebcomponents/dynamic-import-registry/dynamic-import-registry.js" />
+  <link rel="preload" href="https://cdn.webcomponents.psu.edu/cdn/build/es6/node_modules/@lrnwebcomponents/wc-autoload/wc-autoload.js" as="script" crossorigin="anonymous" />
+  <link rel="modulepreload" href="https://cdn.webcomponents.psu.edu/cdn/build/es6/node_modules/@lrnwebcomponents/wc-autoload/wc-autoload.js" />
+  <link rel="preload" href="https://cdn.webcomponents.psu.edu/cdn/build/es6/node_modules/@lrnwebcomponents/clean-two/clean-two.js" as="script" crossorigin="anonymous" />
+  <link rel="modulepreload" href="https://cdn.webcomponents.psu.edu/cdn/build/es6/node_modules/@lrnwebcomponents/clean-two/clean-two.js" />
+  <link rel="preload" href="https://cdn.webcomponents.psu.edu/cdn/build/es6/node_modules/web-animations-js/web-animations-next-lite.min.js" as="script" />  
+  <link rel="preload" href="https://cdn.webcomponents.psu.edu/cdn/build/es6/node_modules/@lrnwebcomponents/haxcms-elements/lib/base.css" as="style" />
+  <link rel="preload" href="/eleventy-blog-3/theme/theme.css" as="style" />
+
+  <meta name="generator" content="HAX11ty" />
+  <link rel="manifest" href="/eleventy-blog-3/manifest.json">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>eleventy-blog-3</title>
+  <link rel="icon" href="/eleventy-blog-3/assets/favicon.ico">
+  <meta name="theme-color" content="#55FF55">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="robots" content="index, follow">
+  <meta name="application-name" content="eleventy-blog-3">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="eleventy-blog-3">
+  <link rel="apple-touch-icon" sizes="48x48" href="/eleventy-blog-3/assets/icon-48x48.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/eleventy-blog-3/assets/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="/eleventy-blog-3/assets/icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/eleventy-blog-3/assets/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/eleventy-blog-3/assets/icon-192x192.png">
+  <meta name="msapplication-TileImage" content="/eleventy-blog-3/assets/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#55FF55">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="description" content="project documentation" />
+  <meta name="og:sitename" property="og:sitename" content="eleventy-blog-3" />
+  <meta name="og:title" property="og:title" content="eleventy-blog-3" />
+  <meta name="og:type" property="og:type" content="article" />
+  <meta name="og:url" property="og:url" content="https://zjohnson10.github.io/eleventy-blog-3" />
+  <meta name="og:description" property="og:description" content="project documentation" />
+  <meta name="og:image" property="og:image" content="assets/banner.jpg" />
+  <meta name="twitter:card" property="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" property="twitter:site" content="https://zjohnson10.github.io/eleventy-blog-3" />
+  <meta name="twitter:title" property="twitter:title" content="eleventy-blog-3" />
+  <meta name="twitter:description" property="twitter:description" content="project documentation" />
+  <meta name="twitter:image" property="twitter:image" content="assets/banner.jpg" />
+  <meta rel="cc:license" href="https://creativecommons.org/licenses/by-sa/4.0/" content="License: Creative Commons: Attribution Share a like"/>
+  <meta name="twitter:creator" content="@" />
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      var sitePath = "/eleventy-blog-3/";
+      // discover this path downstream of the root of the domain
+      var swScope = window.location.pathname.substring(0, window.location.pathname.indexOf(sitePath)) + sitePath;
+      if (swScope != document.head.getElementsByTagName('base')[0].href) {
+        document.head.getElementsByTagName('base')[0].href = swScope;
+      }
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('service-worker.js', {
+          scope: swScope
+        }).then(function (registration) {
+          registration.onupdatefound = function () {
+            // The updatefound event implies that registration.installing is set; see
+            // https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#service-worker-container-updatefound-event
+            var installingWorker = registration.installing;
+            installingWorker.onstatechange = function () {
+              switch (installingWorker.state) {
+                case 'installed':
+                  if (!navigator.serviceWorker.controller) {
+                    window.dispatchEvent(new CustomEvent('simple-toast-show', {
+                      bubbles: true,
+                      cancelable: false,
+                      detail: {
+                        text: 'Pages you view are cached for offline use.',
+                        duration: 8000
+                      }
+                    }));
+                  }
+                break;
+                case 'redundant':
+                  throw Error('The installing service worker became redundant.');
+                break;
+              }
+            };
+          };
+        }).catch(function (e) {
+          console.warn('Service worker registration failed:', e);
+        });
+        // Check to see if the service worker controlling the page at initial load
+        // has become redundant, since this implies there's a new service worker with fresh content.
+        if (navigator.serviceWorker.controller) {
+          navigator.serviceWorker.controller.onstatechange = function(event) {
+            if (event.target.state === 'redundant') {
+              var b = document.createElement('mwc-button');
+              b.appendChild(document.createTextNode('Reload'));
+              b.raised = true;
+              b.addEventListener('click', function(e){ window.location.reload(true); });
+              window.dispatchEvent(new CustomEvent('simple-toast-show', {
+                bubbles: true,
+                cancelable: false,
+                detail: {
+                  text: 'A site update is available. Reload for latest content.',
+                  duration: 12000,
+                  slot: b,
+                  clone: false
+                }
+              }));
+            }
+          };
+        }
+      });
+    }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 98vh;
+    }
+    .use-modern-browser a {
+      font-size: 22px;
+    }
+    .use-modern-browser {
+      font-size: 22px;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+  <style id="loadingstyles">
+    haxcms-site-builder {
+      display: block;
+    }
+    body[no-js] haxcms-site-builder {
+      display: none !important;
+    }
+    #loading {
+      background-color: white;
+      bottom: 0px;
+      left: 0px;
+      opacity: 1;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      transition: all linear 300ms;
+      -webkit-transition: all linear 300ms;
+      z-index: 99999999;
+    }
+
+    #loading.loaded {
+      animation: fade-out .7s ease-in-out;
+      animation-fill-mode: forwards;
+    }
+    #loading div.messaging {
+      color: rgba(255,255,255, 0.7);
+      font-family: Roboto;
+      left: 0px;
+      margin-top: -75px;
+      position: absolute;
+      right: 0px;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    #loading div.messaging h1 {
+      color: white;
+      font-family: 'Open Sans', 'arial', 'serif';
+      font-size: 40px;
+      background-color: #55FF55;
+      transition: .4s ease-in-out all;
+    }
+    #loading img {
+      transition: .4s all ease-in-out;
+      width: 300px;
+      height: 300px;
+      margin-bottom: 50px;
+      border-radius: 50%;
+      border: 8px solid #55FF55;
+      box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.45);
+      -moz-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.45);
+	    -webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.45);
+      -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#444444')";
+    }
+    .progress-line,
+    .progress-line:before {
+      height: 8px;
+      width: 100%;
+      margin: auto;
+    }
+    .progress-line {
+      background-color: rgba(0,0,0, 0.05);
+      display: -webkit-flex;
+      display: flex;
+      width: 300px;
+    }
+    .progress-line:before {
+      background-color: #55FF55;
+      content: '';
+      animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes running-progress {
+      0% {
+        margin-left: 0px;
+        margin-right: 100%;
+      }
+      50% {
+        margin-left: 25%;
+        margin-right: 0%;
+      }
+      100% {
+        margin-left: 100%;
+        margin-right: 0;
+      }
+    }
+    @keyframes fade-out {
+      0% {
+        opacity: 1;
+      }
+      99% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <script id="loadingscript">
+    window.addEventListener('load', function(e) {
+      // give the web components a second to build
+      setTimeout(function() {
+        document.querySelector('#loading').classList.add('loaded');
+        setTimeout(function() {
+          document.querySelector('#loading').parentNode.removeChild(document.querySelector('#loading'));
+          document.querySelector('#loadingstyles').parentNode.removeChild(document.querySelector('#loadingstyles'));
+          document.querySelector('#loadingscript').parentNode.removeChild(document.querySelector('#loadingscript'));
+        }, 600);
+      }, 1000)
+    });
+  </script>
+</head>
+<body no-js vocab="http://schema.org/" prefix="oer:http://oerschema.org cc:http://creativecommons.org/ns dc:http://purl.org/dc/terms/">
+  <div id="loading">
+    <div class="messaging">
+      <img src="assets/images/photo-1497493292307-31c376b6e479.jpeg" alt="" loading="lazy" height="300px" width="300px" />
+      <div class="progress-line"></div>
+      <h1>Loading eleventy-blog-3</h1>
+    </div>
+  </div>
+  <haxcms-site-builder id="site" file="site.json">
+<p>Today, I will be covering how we can extract data from an API and mapping it on the Google Maps API. I will also be covering using that data in a <code>wikipedia-query</code> tag to display a wikipedia page about such contents.</p>
+<h3>GeoIP</h3>
+<p>We can use an app called GeoIP, linked <a href="https://freegeoip.app/json/">here</a>, that can get geographical information, such as coordinates, about a device and send it back to the user as a JSON response. The response from GeoIP is based on your IP address, so if you are using a VPN it will give you the geo information of wherever your VPN is connected to and not your actual physical location. This is what the API response looks like in formatted JSON:</p>
+<pre><code>{
+&quot;ip&quot;: &quot;104.39.60.125&quot;,
+&quot;country_code&quot;: &quot;US&quot;,
+&quot;country_name&quot;: &quot;United States&quot;,
+&quot;region_code&quot;: &quot;PA&quot;,
+&quot;region_name&quot;: &quot;Pennsylvania&quot;,
+&quot;city&quot;: &quot;State College&quot;,
+&quot;zip_code&quot;: &quot;16801&quot;,
+&quot;time_zone&quot;: &quot;America/New_York&quot;,
+&quot;latitude&quot;: 40.7957,
+&quot;longitude&quot;: -77.8618,
+&quot;metro_code&quot;: 574
+}
+</code></pre>
+<h3>Getting JSON Response Using fetch Command</h3>
+<p>We first want to establish the GeoIP API as in instance in our class constructor by saying <code>this.locationEndpoint = 'https://freegeoip.app/json/';</code>. From here we will use the fetch command and call this <code>locationEndpoint</code> in a method called getGEOIPData:</p>
+<pre><code>async getGEOIPData() {
+    const IPClass = new UserIP();
+    const userIPData = await IPClass.updateUserIP();
+    return fetch(this.locationEndpoint + userIPData.ip)
+      .then(resp =&gt; {
+        if (resp.ok) {
+          return resp.json();
+        }
+        return false;
+      })
+      .then(data =&gt; {
+        console.log(data);
+        this.long = data.longitude;
+        this.lat = data.latitude;
+        this.city = data.city;
+        this.state = data.region_name;
+        return data;
+      });
+  }
+</code></pre>
+<p>The fetch command simply stated goes to that webpage and retrieves whatever data we are telling to retrieve or whatever data the webpage has to offer. In this case, the GeoIP webpage returns a JSON response, so that response is assigned to the <code>data</code> instance we see in the <code>.then()</code> call.</p>
+<p>After we receive the response, we can assign that response data attributes into the attributes of our class. This is our latitude and longitude coordinates that the GeoIP API gives us assigned into <code>this.lat</code> and <code>this.long</code> respectively.</p>
+<h3>Using fetch response to map a location</h3>
+<p>For this next portion, we will use the Google Maps iframe API, which allows us to embed a Google Maps interactive image into our html page. We will do this in the <code>render()</code> function of our code. We define the url of the Google Maps that we will use with our <code>this.lat</code> and <code>this.long</code> coordinates from before. Then, send this url into an html tag that shows this map on our webpage.</p>
+<pre><code>render() {
+    // this function runs every time a properties() declared variable changes
+    // this means you can make new variables and then bind them this way if you like
+    const url = `https://maps.google.com/maps?q=${this.lat},${this.long}&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed`;
+    return html`&lt;iframe title=&quot;Where you are&quot; src=&quot;${url}&quot;&gt;&lt;/iframe&gt; 
+  }
+</code></pre>
+<h3>Wiring data into a <code>wikipedia-query</code> tag</h3>
+<p>Now that we have established our ability to retrieve data from APIs using <code>fetch()</code>, we can use this data to embed a wikipedia article on our page. In order to do this, we have to import the wikipedia-query dependency into our project with:
+<code>import '@lrnwebcomponents/wikipedia-query/wikipedia-query.js';</code>. From here we can embed wikipedia articles on our webpage using an html tag inside the <code>render()</code> function.</p>
+<pre><code>&lt;wikipedia-query search=&quot;${this.city}, ${this.state}&quot;&gt;&lt;/wikipedia-query&gt;
+&lt;wikipedia-query search=&quot;${this.city}&quot;&gt;&lt;/wikipedia-query&gt;
+&lt;wikipedia-query search=&quot;${this.state}&quot;&gt;&lt;/wikipedia-query&gt;`;
+</code></pre>
+<p>The tags above represent three different possible entries into this wikipedia-query search. The three are a city and state combination, only a city, or only a state. We used the data from the fetch command from the GeoIP API to get the current city and state we are in. In the API response, state is listed as <code>region_name</code>, so be careful when translating the response over. You should now successfully have three wikipedia articles embedded into your page. This is what one might look like:
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bg2ectipkbld9tkm494y.png" alt="Image description"></p>
+<p>Congratulations, you have successfully integrated two APIs into your webpage! The source code used for this project can be found <a href="https://github.com/zjohnson10/ip-project/tree/master/src">here</a>.</p>
+
+</haxcms-site-builder>
+  <div id="haxcmsoutdatedfallback">
+    <div id="haxcmsoutdatedfallbacksuperold"> 
+      <iframe id="outline" style="width:18%;float:left;height:90vh;padding:0;margin:0;" name="outline" id="frame1"
+        src="/eleventy-blog-3/legacy-outline.html" loading="lazy"></iframe>
+      <iframe id="content" style="width:80%;float:left;height:90vh;padding:0;margin:0;" name="content" id="frame2" src="" loading="lazy"></iframe>
+      <div class="use-modern-browser">Please use a modern browser to
+        view our website correctly. <a href="http://outdatedbrowser.com/">Update my browser now</a></div>
+    </div>
+  </div>
+  <script>window.HAXCMSContext="11ty";document.body.removeAttribute('no-js');window.__appCDN="https://cdn.webcomponents.psu.edu/cdn/";window.__appForceUpgrade=true;</script>
+  <script src="/eleventy-blog-3/build.js"></script>
+  <script src="/eleventy-blog-3/build-haxcms.js"></script>
+  <link rel="stylesheet" type="text/css" href="/eleventy-blog-3/assets/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.webcomponents.psu.edu/cdn/build/es6/node_modules/@lrnwebcomponents/haxcms-elements/lib/base.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+</body>
+</html>

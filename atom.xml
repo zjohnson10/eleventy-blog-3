@@ -3,7 +3,7 @@
   <title>eleventy-blog-3</title>
   <link href="https://zjohnson10.github.io/eleventy-blog-3/atom.xml" rel="self" />
   <subtitle>project documentation</subtitle>
-  <updated>2022-02-28T03:44:52.519-00:00</updated>
+  <updated>2022-02-28T04:35:28.668-00:00</updated>
   <author>
       <name>zjohnson10</name>
   </author>
@@ -11,8 +11,8 @@
   <entry>
     <title>About</title>
     <id>https://zjohnson10.github.io/eleventy-blog-3/content/about/</id>
-    <updated>2022-02-28T03:44:52.519-00:00</updated>
-    <published>2022-02-28T03:44:52.519-00:00</published>
+    <updated>2022-02-28T04:35:28.664-00:00</updated>
+    <published>2022-02-28T04:35:28.664-00:00</published>
     <summary></summary>
     <link href="https://zjohnson10.github.io/eleventy-blog-3/content/about/"/>
     <content type="html">
@@ -27,10 +27,81 @@
     </content>
   </entry>
   <entry>
+    <title>Back End Development with APIs</title>
+    <id>https://zjohnson10.github.io/eleventy-blog-3/content/api/</id>
+    <updated>2022-02-28T04:35:28.664-00:00</updated>
+    <published>2022-02-28T04:35:28.664-00:00</published>
+    <summary></summary>
+    <link href="https://zjohnson10.github.io/eleventy-blog-3/content/api/"/>
+    <content type="html">
+      &lt;p&gt;Today, I will be covering how we can extract data from an API and mapping it on the Google Maps API. I will also be covering using that data in a &lt;code&gt;wikipedia-query&lt;/code&gt; tag to display a wikipedia page about such contents.&lt;/p&gt;
+&lt;h3&gt;GeoIP&lt;/h3&gt;
+&lt;p&gt;We can use an app called GeoIP, linked &lt;a href=&quot;https://freegeoip.app/json/&quot;&gt;here&lt;/a&gt;, that can get geographical information, such as coordinates, about a device and send it back to the user as a JSON response. The response from GeoIP is based on your IP address, so if you are using a VPN it will give you the geo information of wherever your VPN is connected to and not your actual physical location. This is what the API response looks like in formatted JSON:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+&amp;quot;ip&amp;quot;: &amp;quot;104.39.60.125&amp;quot;,
+&amp;quot;country_code&amp;quot;: &amp;quot;US&amp;quot;,
+&amp;quot;country_name&amp;quot;: &amp;quot;United States&amp;quot;,
+&amp;quot;region_code&amp;quot;: &amp;quot;PA&amp;quot;,
+&amp;quot;region_name&amp;quot;: &amp;quot;Pennsylvania&amp;quot;,
+&amp;quot;city&amp;quot;: &amp;quot;State College&amp;quot;,
+&amp;quot;zip_code&amp;quot;: &amp;quot;16801&amp;quot;,
+&amp;quot;time_zone&amp;quot;: &amp;quot;America/New_York&amp;quot;,
+&amp;quot;latitude&amp;quot;: 40.7957,
+&amp;quot;longitude&amp;quot;: -77.8618,
+&amp;quot;metro_code&amp;quot;: 574
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Getting JSON Response Using fetch Command&lt;/h3&gt;
+&lt;p&gt;We first want to establish the GeoIP API as in instance in our class constructor by saying &lt;code&gt;this.locationEndpoint = &#39;https://freegeoip.app/json/&#39;;&lt;/code&gt;. From here we will use the fetch command and call this &lt;code&gt;locationEndpoint&lt;/code&gt; in a method called getGEOIPData:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;async getGEOIPData() {
+    const IPClass = new UserIP();
+    const userIPData = await IPClass.updateUserIP();
+    return fetch(this.locationEndpoint + userIPData.ip)
+      .then(resp =&amp;gt; {
+        if (resp.ok) {
+          return resp.json();
+        }
+        return false;
+      })
+      .then(data =&amp;gt; {
+        console.log(data);
+        this.long = data.longitude;
+        this.lat = data.latitude;
+        this.city = data.city;
+        this.state = data.region_name;
+        return data;
+      });
+  }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The fetch command simply stated goes to that webpage and retrieves whatever data we are telling to retrieve or whatever data the webpage has to offer. In this case, the GeoIP webpage returns a JSON response, so that response is assigned to the &lt;code&gt;data&lt;/code&gt; instance we see in the &lt;code&gt;.then()&lt;/code&gt; call.&lt;/p&gt;
+&lt;p&gt;After we receive the response, we can assign that response data attributes into the attributes of our class. This is our latitude and longitude coordinates that the GeoIP API gives us assigned into &lt;code&gt;this.lat&lt;/code&gt; and &lt;code&gt;this.long&lt;/code&gt; respectively.&lt;/p&gt;
+&lt;h3&gt;Using fetch response to map a location&lt;/h3&gt;
+&lt;p&gt;For this next portion, we will use the Google Maps iframe API, which allows us to embed a Google Maps interactive image into our html page. We will do this in the &lt;code&gt;render()&lt;/code&gt; function of our code. We define the url of the Google Maps that we will use with our &lt;code&gt;this.lat&lt;/code&gt; and &lt;code&gt;this.long&lt;/code&gt; coordinates from before. Then, send this url into an html tag that shows this map on our webpage.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;render() {
+    // this function runs every time a properties() declared variable changes
+    // this means you can make new variables and then bind them this way if you like
+    const url = `https://maps.google.com/maps?q=${this.lat},${this.long}&amp;amp;t=&amp;amp;z=15&amp;amp;ie=UTF8&amp;amp;iwloc=&amp;amp;output=embed`;
+    return html`&amp;lt;iframe title=&amp;quot;Where you are&amp;quot; src=&amp;quot;${url}&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt; 
+  }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Wiring data into a &lt;code&gt;wikipedia-query&lt;/code&gt; tag&lt;/h3&gt;
+&lt;p&gt;Now that we have established our ability to retrieve data from APIs using &lt;code&gt;fetch()&lt;/code&gt;, we can use this data to embed a wikipedia article on our page. In order to do this, we have to import the wikipedia-query dependency into our project with:
+&lt;code&gt;import &#39;@lrnwebcomponents/wikipedia-query/wikipedia-query.js&#39;;&lt;/code&gt;. From here we can embed wikipedia articles on our webpage using an html tag inside the &lt;code&gt;render()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;wikipedia-query search=&amp;quot;${this.city}, ${this.state}&amp;quot;&amp;gt;&amp;lt;/wikipedia-query&amp;gt;
+&amp;lt;wikipedia-query search=&amp;quot;${this.city}&amp;quot;&amp;gt;&amp;lt;/wikipedia-query&amp;gt;
+&amp;lt;wikipedia-query search=&amp;quot;${this.state}&amp;quot;&amp;gt;&amp;lt;/wikipedia-query&amp;gt;`;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The tags above represent three different possible entries into this wikipedia-query search. The three are a city and state combination, only a city, or only a state. We used the data from the fetch command from the GeoIP API to get the current city and state we are in. In the API response, state is listed as &lt;code&gt;region_name&lt;/code&gt;, so be careful when translating the response over. You should now successfully have three wikipedia articles embedded into your page. This is what one might look like:
+&lt;img src=&quot;https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bg2ectipkbld9tkm494y.png&quot; alt=&quot;Image description&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Congratulations, you have successfully integrated two APIs into your webpage! The source code used for this project can be found &lt;a href=&quot;https://github.com/zjohnson10/ip-project/tree/master/src&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+    </content>
+  </entry>
+  <entry>
     <title>Get involved!</title>
     <id>https://zjohnson10.github.io/eleventy-blog-3/content/contact/</id>
-    <updated>2022-02-28T03:44:52.519-00:00</updated>
-    <published>2022-02-28T03:44:52.519-00:00</published>
+    <updated>2022-02-28T04:35:28.664-00:00</updated>
+    <published>2022-02-28T04:35:28.664-00:00</published>
     <summary></summary>
     <link href="https://zjohnson10.github.io/eleventy-blog-3/content/contact/"/>
     <content type="html">
@@ -41,8 +112,8 @@
   <entry>
     <title>Community examples</title>
     <id>https://zjohnson10.github.io/eleventy-blog-3/content/examples/Community/</id>
-    <updated>2022-02-28T03:44:52.519-00:00</updated>
-    <published>2022-02-28T03:44:52.519-00:00</published>
+    <updated>2022-02-28T04:35:28.664-00:00</updated>
+    <published>2022-02-28T04:35:28.664-00:00</published>
     <summary></summary>
     <link href="https://zjohnson10.github.io/eleventy-blog-3/content/examples/Community/"/>
     <content type="html">
@@ -53,8 +124,8 @@
   <entry>
     <title>HAXTheWeb</title>
     <id>https://zjohnson10.github.io/eleventy-blog-3/content/examples/HAXTeam/</id>
-    <updated>2022-02-28T03:44:52.519-00:00</updated>
-    <published>2022-02-28T03:44:52.519-00:00</published>
+    <updated>2022-02-28T04:35:28.664-00:00</updated>
+    <published>2022-02-28T04:35:28.664-00:00</published>
     <summary></summary>
     <link href="https://zjohnson10.github.io/eleventy-blog-3/content/examples/HAXTeam/"/>
     <content type="html">
@@ -69,8 +140,8 @@
   <entry>
     <title>Examples</title>
     <id>https://zjohnson10.github.io/eleventy-blog-3/content/examples/</id>
-    <updated>2022-02-28T03:44:52.519-00:00</updated>
-    <published>2022-02-28T03:44:52.519-00:00</published>
+    <updated>2022-02-28T04:35:28.664-00:00</updated>
+    <published>2022-02-28T04:35:28.664-00:00</published>
     <summary></summary>
     <link href="https://zjohnson10.github.io/eleventy-blog-3/content/examples/"/>
     <content type="html">
@@ -81,8 +152,8 @@
   <entry>
     <title>Installation</title>
     <id>https://zjohnson10.github.io/eleventy-blog-3/content/install/</id>
-    <updated>2022-02-28T03:44:52.519-00:00</updated>
-    <published>2022-02-28T03:44:52.519-00:00</published>
+    <updated>2022-02-28T04:35:28.664-00:00</updated>
+    <published>2022-02-28T04:35:28.664-00:00</published>
     <summary></summary>
     <link href="https://zjohnson10.github.io/eleventy-blog-3/content/install/"/>
     <content type="html">
@@ -110,8 +181,8 @@
   <entry>
     <title>Roadmap</title>
     <id>https://zjohnson10.github.io/eleventy-blog-3/content/roadmap/</id>
-    <updated>2022-02-28T03:44:52.519-00:00</updated>
-    <published>2022-02-28T03:44:52.519-00:00</published>
+    <updated>2022-02-28T04:35:28.664-00:00</updated>
+    <published>2022-02-28T04:35:28.664-00:00</published>
     <summary></summary>
     <link href="https://zjohnson10.github.io/eleventy-blog-3/content/roadmap/"/>
     <content type="html">
@@ -134,10 +205,46 @@
     </content>
   </entry>
   <entry>
+    <title>Basic Web Components with Open-wc, npm, node.js, and VScode</title>
+    <id>https://zjohnson10.github.io/eleventy-blog-3/content/web-comp/</id>
+    <updated>2022-02-28T04:35:28.664-00:00</updated>
+    <published>2022-02-28T04:35:28.664-00:00</published>
+    <summary></summary>
+    <link href="https://zjohnson10.github.io/eleventy-blog-3/content/web-comp/"/>
+    <content type="html">
+      &lt;p&gt;In order to start talking about web components and using open-wc, we have to introduce the building blocks that allow us to make that possible. To use open-wc, we have to install a few different dependencies that make it function. Before we install, let&#39;s talk about a few of them. First is npm, which is a JavaScript Node package manager. It offers the largest selection of code packages in their software registry. This is typically concurrently used with Node.js. Node.js is a open-source JavaScript runtime environment where code can be executed outside of the web.&lt;/p&gt;
+&lt;p&gt;Both of these JavaScript add-ins make developers lives much easier. They are free to use and open-source that make it possible to share software with others and do things that were not possible before their development. They are very commonly used in web development with back-end tools to allow for runtime processes that can occur quicker and more efficient in the web. Now, let&#39;s look at installing these JavaScript helpers.&lt;/p&gt;
+&lt;h3&gt;Node.js&lt;/h3&gt;
+&lt;p&gt;Go to this &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;webpage&lt;/a&gt; and download the LTS version of nodejs for your device. Open the package in your downloads file folder and follow the directions to install.&lt;/p&gt;
+&lt;h3&gt;npm&lt;/h3&gt;
+&lt;p&gt;For npm, this can be done in the command line / terminal. Directions can be found &lt;a href=&quot;https://docs.npmjs.com/downloading-and-installing-node-js-and-npm&quot;&gt;here&lt;/a&gt; to download and install. After running that command, the commands &lt;code&gt;node -v&lt;/code&gt; and &lt;code&gt;npm -v&lt;/code&gt; can be used to check that the most current version is installed.&lt;/p&gt;
+&lt;h3&gt;Yarn&lt;/h3&gt;
+&lt;p&gt;Another software component we use for web develop is Yarn. We can install this in the command line with npm with the command &lt;code&gt;npm install --global yarn&lt;/code&gt;. To check the version, use command &lt;code&gt;yarn --version&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Visual Studio Code&lt;/h3&gt;
+&lt;p&gt;VSCode can be downloaded and installed &lt;a href=&quot;https://code.visualstudio.com/docs/setup/mac&quot;&gt;here&lt;/a&gt;. VSCode is a coding text editor for many different programming languages.&lt;/p&gt;
+&lt;h2&gt;Build a Web Component&lt;/h2&gt;
+&lt;p&gt;Now that we have installed those dependencies, we can make a web component with open-wc. Create a new folder/directory to house this project using either your file explorer or in the terminal with command &lt;code&gt;mkdir&lt;/code&gt;. In your terminal, run the command &lt;code&gt;npm init @open-wc&lt;/code&gt;. If this command was successful, you have installed everything correctly and you should see this!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://dev-to-uploads.s3.amazonaws.com/uploads/articles/eu69dor055gc7f6kebir.png&quot; alt=&quot;Image description&quot;&gt;&lt;/p&gt;
+&lt;p&gt;When setting up the web component, the parameters I used were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scaffold a new project&lt;/li&gt;
+&lt;li&gt;Web component&lt;/li&gt;
+&lt;li&gt;Linting, Testing, and Demoing&lt;/li&gt;
+&lt;li&gt;No typescript&lt;/li&gt;
+&lt;li&gt;Install with npm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;From this, open-wc should open a new tab in your web browser showing this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p6w98iksdvbcfw4uj2g1.png&quot; alt=&quot;Image description&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Congratulations you have successfully made a web component/element!&lt;/p&gt;
+&lt;p&gt;The github repository containing the code for the web element is &lt;a href=&quot;https://github.com/zjohnson10/zjohnson-lab1.git&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+    </content>
+  </entry>
+  <entry>
     <title>Why this is better</title>
     <id>https://zjohnson10.github.io/eleventy-blog-3/content/why/</id>
-    <updated>2022-02-28T03:44:52.519-00:00</updated>
-    <published>2022-02-28T03:44:52.519-00:00</published>
+    <updated>2022-02-28T04:35:28.668-00:00</updated>
+    <published>2022-02-28T04:35:28.668-00:00</published>
     <summary></summary>
     <link href="https://zjohnson10.github.io/eleventy-blog-3/content/why/"/>
     <content type="html">

@@ -1,5 +1,5 @@
 {
-  "id": "#93fb6ff2-3b73-e286-2718-5813d77c0969",
+  "id": "#5695481b-a69c-6b94-4392-8f3e81ea4421",
   "title": "eleventy-blog-3",
   "author": "zjohnson10",
   "description": "project documentation",
@@ -13,8 +13,8 @@
     },
     "site": {
       "name": "eleventy-blog-3",
-      "created": 1646019912291,
-      "updated": 1646019912291,
+      "created": 1646022947855,
+      "updated": 1646022947855,
       "git": {
         "autoPush": false,
         "branch": "master",
@@ -58,8 +58,8 @@
       "description": "HAXTheWeb",
       "parent": "--content-examples-index-md",
       "metadata": {
-        "created": 1646019893,
-        "updated": 1646019893,
+        "created": 1646022929,
+        "updated": 1646022929,
         "readtime": 1,
         "contentDetails": {},
         "files": [],
@@ -82,8 +82,8 @@
       "description": "About",
       "parent": null,
       "metadata": {
-        "created": 1646019893,
-        "updated": 1646019893,
+        "created": 1646022929,
+        "updated": 1646022929,
         "readtime": 1,
         "contentDetails": {},
         "files": [],
@@ -106,8 +106,8 @@
       "description": "Installation",
       "parent": null,
       "metadata": {
-        "created": 1646019893,
-        "updated": 1646019893,
+        "created": 1646022929,
+        "updated": 1646022929,
         "readtime": 1,
         "contentDetails": {},
         "files": [],
@@ -130,8 +130,8 @@
       "description": "Community examples",
       "parent": "--content-examples-index-md",
       "metadata": {
-        "created": 1646019893,
-        "updated": 1646019893,
+        "created": 1646022929,
+        "updated": 1646022929,
         "readtime": 1,
         "contentDetails": {},
         "files": [],
@@ -154,8 +154,8 @@
       "description": "Examples",
       "parent": null,
       "metadata": {
-        "created": 1646019893,
-        "updated": 1646019893,
+        "created": 1646022929,
+        "updated": 1646022929,
         "readtime": 1,
         "contentDetails": {},
         "files": [],
@@ -178,8 +178,8 @@
       "description": "Why this is better",
       "parent": null,
       "metadata": {
-        "created": 1646019893,
-        "updated": 1646019893,
+        "created": 1646022929,
+        "updated": 1646022929,
         "readtime": 1,
         "contentDetails": {},
         "files": [],
@@ -202,8 +202,8 @@
       "description": "Roadmap",
       "parent": null,
       "metadata": {
-        "created": 1646019893,
-        "updated": 1646019893,
+        "created": 1646022929,
+        "updated": 1646022929,
         "readtime": 1,
         "contentDetails": {},
         "files": [],
@@ -226,8 +226,8 @@
       "description": "Get involved!",
       "parent": null,
       "metadata": {
-        "created": 1646019893,
-        "updated": 1646019893,
+        "created": 1646022929,
+        "updated": 1646022929,
         "readtime": 1,
         "contentDetails": {},
         "files": [],
@@ -238,6 +238,54 @@
         "layout": "content.liquid",
         "title": "Get involved!",
         "order": 4
+      }
+    },
+    {
+      "id": "--content-web-comp-md",
+      "indent": 0,
+      "location": "./pages/web-comp.md",
+      "slug": "content/web-comp/",
+      "order": 5,
+      "title": "Basic Web Components with Open-wc, npm, node.js, and VScode",
+      "description": "Basic Web Components with Open-wc, npm, node.js, and VScode",
+      "parent": null,
+      "metadata": {
+        "created": 1646022929,
+        "updated": 1646022929,
+        "readtime": 2,
+        "contentDetails": {},
+        "files": [],
+        "haxcmsServiceWorker": true,
+        "tags": [
+          "content"
+        ],
+        "layout": "content.liquid",
+        "title": "Basic Web Components with Open-wc, npm, node.js, and VScode",
+        "order": 5
+      }
+    },
+    {
+      "id": "--content-api-md",
+      "indent": 0,
+      "location": "./pages/api.md",
+      "slug": "content/api/",
+      "order": 6,
+      "title": "Back End Development with APIs",
+      "description": "Back End Development with APIs",
+      "parent": null,
+      "metadata": {
+        "created": 1646022929,
+        "updated": 1646022929,
+        "readtime": 3,
+        "contentDetails": {},
+        "files": [],
+        "haxcmsServiceWorker": true,
+        "tags": [
+          "content"
+        ],
+        "layout": "content.liquid",
+        "title": "Back End Development with APIs",
+        "order": 6
       }
     }
   ]

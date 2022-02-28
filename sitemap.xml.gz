@@ -2,56 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <pre><code>&lt;url&gt;
   &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/about/&lt;/loc&gt;
-  &lt;lastmod&gt;2022-02-28T03:44:52+00:00&lt;/lastmod&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
+  &lt;changefreq&gt;daily&lt;/changefreq&gt;
+  &lt;priority&gt;1.0&lt;/priority&gt;
+&lt;/url&gt;
+
+&lt;url&gt;
+  &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/api/&lt;/loc&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
   &lt;changefreq&gt;daily&lt;/changefreq&gt;
   &lt;priority&gt;1.0&lt;/priority&gt;
 &lt;/url&gt;
 
 &lt;url&gt;
   &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/contact/&lt;/loc&gt;
-  &lt;lastmod&gt;2022-02-28T03:44:52+00:00&lt;/lastmod&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
   &lt;changefreq&gt;daily&lt;/changefreq&gt;
   &lt;priority&gt;1.0&lt;/priority&gt;
 &lt;/url&gt;
 
 &lt;url&gt;
   &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/examples/Community/&lt;/loc&gt;
-  &lt;lastmod&gt;2022-02-28T03:44:52+00:00&lt;/lastmod&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
   &lt;changefreq&gt;daily&lt;/changefreq&gt;
   &lt;priority&gt;1.0&lt;/priority&gt;
 &lt;/url&gt;
 
 &lt;url&gt;
   &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/examples/HAXTeam/&lt;/loc&gt;
-  &lt;lastmod&gt;2022-02-28T03:44:52+00:00&lt;/lastmod&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
   &lt;changefreq&gt;daily&lt;/changefreq&gt;
   &lt;priority&gt;1.0&lt;/priority&gt;
 &lt;/url&gt;
 
 &lt;url&gt;
   &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/examples/&lt;/loc&gt;
-  &lt;lastmod&gt;2022-02-28T03:44:52+00:00&lt;/lastmod&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
   &lt;changefreq&gt;daily&lt;/changefreq&gt;
   &lt;priority&gt;1.0&lt;/priority&gt;
 &lt;/url&gt;
 
 &lt;url&gt;
   &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/install/&lt;/loc&gt;
-  &lt;lastmod&gt;2022-02-28T03:44:52+00:00&lt;/lastmod&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
   &lt;changefreq&gt;daily&lt;/changefreq&gt;
   &lt;priority&gt;1.0&lt;/priority&gt;
 &lt;/url&gt;
 
 &lt;url&gt;
   &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/roadmap/&lt;/loc&gt;
-  &lt;lastmod&gt;2022-02-28T03:44:52+00:00&lt;/lastmod&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
+  &lt;changefreq&gt;daily&lt;/changefreq&gt;
+  &lt;priority&gt;1.0&lt;/priority&gt;
+&lt;/url&gt;
+
+&lt;url&gt;
+  &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/web-comp/&lt;/loc&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
   &lt;changefreq&gt;daily&lt;/changefreq&gt;
   &lt;priority&gt;1.0&lt;/priority&gt;
 &lt;/url&gt;
 
 &lt;url&gt;
   &lt;loc&gt;https://zjohnson10.github.io/eleventy-blog-3/content/why/&lt;/loc&gt;
-  &lt;lastmod&gt;2022-02-28T03:44:52+00:00&lt;/lastmod&gt;
+  &lt;lastmod&gt;2022-02-28T04:35:28+00:00&lt;/lastmod&gt;
   &lt;changefreq&gt;daily&lt;/changefreq&gt;
   &lt;priority&gt;1.0&lt;/priority&gt;
 &lt;/url&gt;

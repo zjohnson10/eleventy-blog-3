@@ -38,40 +38,48 @@
 'use strict';
 var precacheConfig = [
   [
+    "/eleventy-blog-3/content/api/",
+    "BrWMOUlc2I1tiaAm"
+  ],
+  [
     "/eleventy-blog-3/content/about/",
-    "gv3tAUtCz3UtKTY1"
+    "BrWMOUlc2I1tiaAm"
   ],
   [
     "/eleventy-blog-3/content/contact/",
-    "gv3tAUtCz3UtKTY1"
+    "BrWMOUlc2I1tiaAm"
   ],
   [
     "/eleventy-blog-3/content/install/",
-    "gv3tAUtCz3UtKTY1"
+    "BrWMOUlc2I1tiaAm"
   ],
   [
     "/eleventy-blog-3/content/roadmap/",
-    "gv3tAUtCz3UtKTY1"
+    "BrWMOUlc2I1tiaAm"
+  ],
+  [
+    "/eleventy-blog-3/content/web-comp/",
+    "BrWMOUlc2I1tiaAm"
   ],
   [
     "/eleventy-blog-3/content/why/",
-    "gv3tAUtCz3UtKTY1"
-  ],
-  [
-    "/eleventy-blog-3/content/examples/HAXTeam/",
-    "gv3tAUtCz3UtKTY1"
+    "BrWMOUlc2I1tiaAm"
   ],
   [
     "/eleventy-blog-3/content/examples/Community/",
-    "gv3tAUtCz3UtKTY1"
+    "BrWMOUlc2I1tiaAm"
+  ],
+  [
+    "/eleventy-blog-3/content/examples/HAXTeam/",
+    "BrWMOUlc2I1tiaAm"
   ],
   [
     "/eleventy-blog-3/content/examples/",
-    "gv3tAUtCz3UtKTY1"
+    "BrWMOUlc2I1tiaAm"
   ],
   [
     "/eleventy-blog-3/",
-    "gv3tAUtCz3UtKTY1"
+    "BrWMOUlc2I1tiaAm"
   ]
 ];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
